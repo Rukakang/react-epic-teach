@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React ,{Suspense,lazy} from 'react';
 import './App.css';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import Loading from "./components/Loading";
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+
+const Home =lazy(() => {
+    return import('pages/Home');});
+const History =lazy(() => {
+    return import('pages/History');});
+const About =lazy(() => {
+    return import('pages/About');});
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BrowserRouter>
+            <Header/>
+            <main>
+                <Suspense fallback={<Loading/>}>
+                    <Switch>
+                        <Route exact path='/' component={Home} />
+                        <Route exact path='/history' component={History} />
+                        <Route exact path='/about' component={About} />
+                    </Switch>
+                </Suspense>
+            </main>
+            <Footer/>
+        </BrowserRouter>
     </div>
   );
 }
