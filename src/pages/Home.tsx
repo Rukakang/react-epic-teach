@@ -2,9 +2,9 @@ import React from "react";
 
 function Money(){
     return(
-        <div>
-            Home
-        </div>
+        <>
+           <h1>Home</h1>
+        </>
     )
 }
 export default Money

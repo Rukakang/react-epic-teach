@@ -2,9 +2,9 @@ import React from "react";
 
 function History(){
     return(
-        <div>
-            History
-        </div>
+        <>
+            <h1>History</h1>
+        </>
     )
 }
 export default History

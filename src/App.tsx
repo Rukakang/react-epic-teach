@@ -14,7 +14,7 @@ const About =lazy(() => {
 
 function App() {
   return (
-    <div className="App">
+    <>
         <BrowserRouter>
             <Header/>
             <main>
@@ -28,7 +28,7 @@ function App() {
             </main>
             <Footer/>
         </BrowserRouter>
-    </div>
+    </>
   );
 }
 
